@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>
+Important:
+You will need to do a little change to automatically update the wallpapers because currently the program cannot do it. Then it should work fine but it needs more testing. If it needs to set again and again then I will make an option in the program to do that automatically.
+Open this file:
+%appdata%\Microsoft\Windows\Themes\slideshow.ini
+And delete everything starting with [Slideshow1] and such. Only keep the first [Slideshow] part. Save the file and now it should select every file in the folder.
+The way it works is that it stores a path and if you don't select all, then it stores the images selected or not selected possibly based on which has more. Even if you select all images, it stores what files are selected, which is different than selecting the whole folder...</value>
+  </data>
 </root>
