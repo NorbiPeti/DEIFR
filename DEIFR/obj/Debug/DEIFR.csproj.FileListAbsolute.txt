@@ -9,3 +9,6 @@ D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\obj\Debug\DEIFR.exe
 D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\obj\Debug\DEIFR.pdb
 D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\bin\Debug\Newtonsoft.Json.pdb
 D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\bin\Debug\Newtonsoft.Json.xml
+D:\Háttérkép\DEIFR.exe.config
+D:\Háttérkép\DEIFR.exe
+D:\Háttérkép\DEIFR.pdb
