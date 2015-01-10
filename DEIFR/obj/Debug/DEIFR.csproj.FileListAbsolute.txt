@@ -1,0 +1,11 @@
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\bin\Debug\DEIFR.exe.config
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\bin\Debug\DEIFR.exe
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\bin\Debug\DEIFR.pdb
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\obj\Debug\DEIFR.csprojResolveAssemblyReference.cache
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\obj\Debug\DEIFR.Form1.resources
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\obj\Debug\DEIFR.Properties.Resources.resources
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\obj\Debug\DEIFR.csproj.GenerateResource.Cache
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\obj\Debug\DEIFR.exe
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\obj\Debug\DEIFR.pdb
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\bin\Debug\Newtonsoft.Json.pdb
+D:\Z - Norbi cucca\0 Projektek\DEIFR\DEIFR\bin\Debug\Newtonsoft.Json.xml
