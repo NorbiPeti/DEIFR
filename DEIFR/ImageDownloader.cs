@@ -51,10 +51,14 @@ namespace DEIFR
                         continue; //Otherwise we don't know what is there
                 }
                 //Image.FromStream(respstr).Save(i + "." + s.Split('/').Last().Split('.')[1]);
-                string path = id + "." + s.Split('/').Last().Split('.')[1];
+                string path = id + "." + s.Split('/').Last().Split('.')[1].Split('?')[0]; //?: FB and similar sites
                 using (WebClient client = new WebClient())
                 {
-                    client.DownloadFile(s, "wallpapers" + Path.DirectorySeparatorChar + path);
+                    try
+                    {
+                        client.DownloadFile(s, "wallpapers" + Path.DirectorySeparatorChar + path);
+                    }
+                    catch { } //If the image is removed then don't do anything
                 }
                 files.Remove(path);
                 i++;
