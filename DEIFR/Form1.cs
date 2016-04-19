@@ -19,6 +19,16 @@ namespace DEIFR
             checkBox1.Checked = Program.KeepImages;
             Program.Progress = progressBar1;
             Program.AllProgress = progressBar2;
+            this.FormClosing += Form1_FormClosing;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!ImageDownloader.Stop)
+            {
+                ImageDownloader.Stop = true;
+                e.Cancel = true;
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

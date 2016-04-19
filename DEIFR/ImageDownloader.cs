@@ -96,6 +96,14 @@ namespace DEIFR
 
         private static bool Next()
         {
+            if (Stop)
+            {
+                Program.Form.Invoke(new Action(delegate
+                {
+                    Program.Form.Close();
+                }));
+                return true;
+            }
             if (enumerator.MoveNext())
             {
                 JToken result = enumerator.Current;
@@ -113,7 +121,6 @@ namespace DEIFR
                     else
                         return false; //Otherwise we don't know what is there
                 }
-                //Image.FromStream(respstr).Save(i + "." + s.Split('/').Last().Split('.')[1]);
                 string path = id + "." + s.Split('/').Last().Split('.')[1].Split('?')[0]; //?: FB and similar sites
                 using (WebClient client = new WebClient())
                 {
@@ -140,5 +147,7 @@ namespace DEIFR
             }
             return true;
         }
+
+        public static bool Stop { get; set; }
     }
 }

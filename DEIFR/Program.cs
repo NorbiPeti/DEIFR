@@ -29,6 +29,7 @@ namespace DEIFR
                 return;
             }
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            
             if (File.Exists("DEIFRSettings.ini"))
             {
                 string[] ss = File.ReadAllLines("DEIFRSettings.ini");
