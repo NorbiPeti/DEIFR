@@ -144,10 +144,39 @@ namespace DEIFR
                         File.Delete(file);
                     }
                 }
+                if (Program.Auto)
+                {
+                    Stop = true;
+                    Program.Form.Invoke(new Action(delegate
+                    {
+                        Program.Form.Close();
+                    }));
+                    return true;
+                }
+                Finished = true;
             }
             return true;
         }
 
-        public static bool Stop { get; set; }
+        private static bool stop = false;
+        public static bool Stop
+        {
+            get
+            {
+                return stop;
+            }
+            set
+            {
+                stop = value;
+                if (Finished)
+                {
+                    Program.Form.Invoke(new Action(delegate
+                    {
+                        Program.Form.Close();
+                    }));
+                }
+            }
+        }
+        private static bool Finished = false;
     }
 }

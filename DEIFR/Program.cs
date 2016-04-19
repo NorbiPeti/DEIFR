@@ -14,6 +14,7 @@ namespace DEIFR
         public static ProgressBar Progress;
         public static Form1 Form;
         public static ProgressBar AllProgress;
+        public static bool Auto = false;
 
         /// <summary>
         /// The main entry point for the application.
@@ -49,10 +50,14 @@ namespace DEIFR
             }
             else
                 MaxImages = 50;
-            if (args.Length == 0)
-                Application.Run(Form = new Form1());
-            else if (args[0].ToLower() != "silent")
-                Console.WriteLine("Error: Unknown parameter(s). Use \"silent\" to open in background, otherwise don't give any parameters to show settings.");
+            if (args.Length > 0)
+            {
+                if (args[0].ToLower() != "silent")
+                    Console.WriteLine("Error: Unknown parameter(s). Use \"silent\" to open in background, otherwise don't give any parameters to show settings.");
+                else
+                    Auto = true;
+            }
+            Application.Run(Form = new Form1());
             List<string> sw = new List<string>();
             sw.Add("maximages=" + MaxImages);
             sw.Add("keepimages=" + KeepImages);
