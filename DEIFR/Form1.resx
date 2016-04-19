@@ -120,7 +120,7 @@
   <data name="textBox1.Text" xml:space="preserve">
     <value>
 Important:
-You will need to do a little change to automatically update the wallpapers because currently the program cannot do it. Then it should work fine but it needs more testing. If it needs to set again and again then I will make an option in the program to do that automatically.
+You may need to do a little change to automatically update the wallpapers and currently the program cannot do it. Then it should work fine but it needs more testing. If it needs to set again and again then I will make an option in the program to do that automatically.
 Open this file:
 %appdata%\Microsoft\Windows\Themes\slideshow.ini
 And delete everything starting with [Slideshow1] and such. Only keep the first [Slideshow] part. Save the file and now it should select every file in the folder.

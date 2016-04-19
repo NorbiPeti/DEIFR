@@ -160,6 +160,7 @@
             this.Controls.Add(this.numericUpDown1);
             this.Name = "Form1";
             this.Text = "DEIFR - Download Earth Images From Reddit";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

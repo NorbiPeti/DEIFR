@@ -29,7 +29,7 @@ namespace DEIFR
                 return;
             }
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            
+
             if (File.Exists("DEIFRSettings.ini"))
             {
                 string[] ss = File.ReadAllLines("DEIFRSettings.ini");
@@ -47,7 +47,8 @@ namespace DEIFR
                     }
                 }
             }
-            ImageDownloader.Update();
+            else
+                MaxImages = 50;
             if (args.Length == 0)
                 Application.Run(Form = new Form1());
             else if (args[0].ToLower() != "silent")

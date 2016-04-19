@@ -20,6 +20,7 @@ namespace DEIFR
             Program.Progress = progressBar1;
             Program.AllProgress = progressBar2;
             this.FormClosing += Form1_FormClosing;
+            ImageDownloader.Update();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -28,6 +29,8 @@ namespace DEIFR
             {
                 ImageDownloader.Stop = true;
                 e.Cancel = true;
+                this.ControlBox = false;
+                this.Enabled = false;
             }
         }
 
@@ -40,6 +43,11 @@ namespace DEIFR
         {
             Program.MaxImages = (int)numericUpDown1.Value;
             numericUpDown1.Value = Program.MaxImages; //A way to disallow non-integer inputs
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
