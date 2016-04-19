@@ -13,6 +13,7 @@ namespace DEIFR
         public static int MaxImages;
         public static ProgressBar Progress;
         public static Form1 Form;
+        public static ProgressBar AllProgress;
 
         /// <summary>
         /// The main entry point for the application.

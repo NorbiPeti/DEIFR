@@ -18,6 +18,7 @@ namespace DEIFR
             numericUpDown1.Value = Program.MaxImages;
             checkBox1.Checked = Program.KeepImages;
             Program.Progress = progressBar1;
+            Program.AllProgress = progressBar2;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

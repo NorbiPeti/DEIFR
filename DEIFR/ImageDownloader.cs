@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace DEIFR
@@ -25,18 +26,44 @@ namespace DEIFR
 
             using (WebClient client = new WebClient())
             {
+                client.DownloadProgressChanged += DownloadProgress;
+                client.DownloadStringCompleted += DownloadedLinks;
                 client.DownloadStringAsync(new Uri("http://www.reddit.com/r/EarthPorn/.json?limit=" + Program.MaxImages));
-                JObject obj = JObject.Parse(response);
-                data = obj["data"]["children"].Children().ToList();
-                i = 0;
-                files = Directory.GetFiles("wallpapers").ToList();
-                enumerator = data.GetEnumerator();
             }
-            Task.Run(() =>
+        }
+
+        private static void DownloadedLinks(object sender, DownloadStringCompletedEventArgs e)
+        {
+            if (e.Error != null)
             {
-                while (!Next())
-                    ;
-            });
+                MessageBox.Show("Error while getting list from Reddit:\n" + e.Error);
+                return;
+            }
+            JObject obj = JObject.Parse(e.Result);
+            data = obj["data"]["children"].Children().ToList();
+            i = 0;
+            files = Directory.GetFiles("wallpapers").ToList();
+            enumerator = data.GetEnumerator();
+            Program.Form.Invoke(new Action(delegate
+            {
+                Program.AllProgress.Maximum = data.Count + 1;
+                Program.AllProgress.Value++;
+            }));
+            while (!Next())
+            {
+                Program.Form.Invoke(new Action(delegate
+                {
+                    Program.AllProgress.Value++;
+                }));
+            }
+        }
+
+        private static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
+        {
+            Program.Form.Invoke(new Action(delegate
+            {
+                Program.Progress.Value = e.ProgressPercentage;
+            }));
         }
 
         private static void Client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -49,8 +76,22 @@ namespace DEIFR
 
         private static void Client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
+            if (e.Error != null)
+            {
+                if (MessageBox.Show("Error while downloading imgae:\n" + e.Error, "Error", MessageBoxButtons.RetryCancel) == DialogResult.Cancel)
+                    return;
+            }
+            Program.Form.Invoke(new Action(delegate
+            {
+                Program.AllProgress.Value++;
+            }));
             while (!Next())
-                ;
+            {
+                Program.Form.Invoke(new Action(delegate
+                {
+                    Program.AllProgress.Value++;
+                }));
+            }
         }
 
         private static bool Next()
