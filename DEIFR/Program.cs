@@ -11,6 +11,8 @@ namespace DEIFR
     {
         public static bool KeepImages;
         public static int MaxImages;
+        public static ProgressBar Progress;
+        public static Form1 Form;
 
         /// <summary>
         /// The main entry point for the application.
@@ -45,7 +47,7 @@ namespace DEIFR
             }
             ImageDownloader.Update();
             if (args.Length == 0)
-                Application.Run(new Form1());
+                Application.Run(Form = new Form1());
             else if (args[0].ToLower() != "silent")
                 Console.WriteLine("Error: Unknown parameter(s). Use \"silent\" to open in background, otherwise don't give any parameters to show settings.");
             List<string> sw = new List<string>();

@@ -17,6 +17,7 @@ namespace DEIFR
             InitializeComponent();
             numericUpDown1.Value = Program.MaxImages;
             checkBox1.Checked = Program.KeepImages;
+            Program.Progress = progressBar1;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
